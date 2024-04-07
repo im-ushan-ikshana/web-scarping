@@ -52,6 +52,28 @@ def getLecturerDesignation(soup):
     else:
         return None
 
+def getLecturerDetails(soup):
+    if soup:
+        room = ""
+        phone = ""
+        email = ""
+        fax = ""
+        i = 0
+        for lecturer_details in soup.find_all('p'):
+            if i == 1:
+                room = lecturer_details.get_text()
+            elif i == 2:
+                phone = lecturer_details.get_text()
+            elif i >= 3:
+                if lecturer_details.get_text().find("Email" or "email") != -1:
+                    email = lecturer_details.get_text()
+                if lecturer_details.get_text().find("Fax" or "fax") != -1:
+                    fax = lecturer_details.get_text()
+            i += 1
+        return room, phone, email , fax   
+    else:
+        return None
+
 # Print function - this function will be used to print the output   
 def myPrinter(String_to_print):
     if String_to_print is not None and String_to_print.strip() != "":
@@ -69,10 +91,15 @@ def main():
             colomunSection = findGivenClass(Section, 'sppb-row')
             for innerSection in colomunSection:
                 myPrinter(getLecturerName(innerSection))
-                detailSection = findGivenClass(innerSection, 'sppb-addon-content')
+                detailSection = findGivenClass(innerSection, 'sppb-addon sppb-addon-text-block sppb-text-left')
                 for innerInnerSection in detailSection:
                     myPrinter(getLecturerDesignation(innerInnerSection))
-                    print(innerInnerSection)
+                    #print(innerInnerSection)
+                    room , phone , email , fax = getLecturerDetails(innerInnerSection)
+                    myPrinter(room)
+                    myPrinter(phone)
+                    myPrinter(email)
+                    myPrinter(fax)
                     print("\n")
                         
 
