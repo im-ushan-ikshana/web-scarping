@@ -90,18 +90,26 @@ def main():
         for Section in sectionSoup:
             colomunSection = findGivenClass(Section, 'sppb-row')
             for innerSection in colomunSection:
-                myPrinter(getLecturerName(innerSection))
+                name = getLecturerName(innerSection)
                 detailSection = findGivenClass(innerSection, 'sppb-addon sppb-addon-text-block sppb-text-left')
                 for innerInnerSection in detailSection:
-                    myPrinter(getLecturerDesignation(innerInnerSection))
+                    designation = getLecturerDesignation(innerInnerSection)
                     #print(innerInnerSection)
                     room , phone , email , fax = getLecturerDetails(innerInnerSection)
-                    myPrinter(room)
-                    myPrinter(phone)
-                    myPrinter(email)
-                    myPrinter(fax)
-                    print("\n")
-                        
+                getLinkSection = findGivenTagAndClass(innerSection, 'a', 'sppb-btn sppb-btn-custom sppb-btn-lg sppb-btn-round')
+                link_to_full_details = ""
+                for innerInnerSection in getLinkSection:
+                    link_to_full_details = innerInnerSection.get('href')
+                print("-------------------------------------------------")
+                myPrinter(name)
+                myPrinter(designation)
+                myPrinter(room)
+                myPrinter(phone)
+                myPrinter(email)
+                myPrinter(fax)
+                myPrinter(link_to_full_details)
+                print("-------------------------------------------------")
+
 
                 
 
