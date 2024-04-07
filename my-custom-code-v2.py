@@ -48,6 +48,7 @@ def checkRequestStatus(request):
         print("HTTP version not supported")
     else:
         print("Unknown error")
+    
     return False
     
 #get Lecturer sections
@@ -143,7 +144,7 @@ def getLinksToSites(soup):
                 a_tag = link.find('a')
                 if a_tag:
                     link_name = a_tag.text
-                    link_url = a_tag['href']
+                    link_url = a_tag['href'] # Extract the URL of the link
                     if link_url:
                         links_string += f"{link_name}: {link_url} \n"  # Concatenate the link name and URL
         return links_string.strip()  # Return the concatenated string, stripping any leading/trailing whitespace
@@ -151,14 +152,14 @@ def getLinksToSites(soup):
         return ""  # Return an empty string if soup is None
 
 def getAcademicQualifications(soup):
+    soup = getPanelGroupSection(soup)
     if soup:
-        academic_qualifications = soup.find_all('div', class_='sppb-addon-content')
-        if academic_qualifications:
-            for qualification in academic_qualifications:
-                qualification_text = qualification.text.strip()
-                return qualification_text
-        else:
-            return None
+        academic_qualifications = []
+        for section in soup:
+            qualification = section.find('ul', class_='sppb-addon-content')
+            if qualification == "Academic Qualifications":
+                academic_qualifications.append(qualification.text.strip())
+        return academic_qualifications if academic_qualifications else None
     else:
         return None
 
@@ -175,29 +176,23 @@ url2 = "https://science.kln.ac.lk/depts/im/index.php/staff/academic-staff"
 
 def fullProfile(url):
     if url:
-        html , req = get_page(url)
+        html, req = get_page(url)
         if checkRequestStatus(req):
             soup = convert_to_soup(html)
             details = getDetailsSection(soup)
+            full_details_text = ""  # Initialize an empty string to store the full details text
             for section in details:
-                print(getLinksToSites(section))
+                links_text = getLinksToSites(section)  # Get the links for the current section
+                if links_text:  # If links are found, concatenate them with the full details text
+                    full_details_text += links_text + "\n"  # Add the links text to the full details text
+            if full_details_text:  # If there is any full details text, print it
+                print(full_details_text.strip())  # Print the full details text after stripping leading/trailing whitespace
+            panelsSet = getPanelGroupSection(soup)
             
     else:
         print("No link found")
-        
 
-def main_h():
-    html, request = get_page(url)
-    if checkRequestStatus(request):
-        soup = convert_to_soup(html)
-        lecturer_sections = getLecturerSections(soup)
-        for section in lecturer_sections:
-            print(getName(section))
-            print(getOtherDetails(section))
-            print("Full Details :\n")
-            fullProfile(getFullDetailsLink(section))
-            print("\n")
-        
+
 
 def main():
     html, request = get_page(url)
@@ -211,12 +206,12 @@ def main():
 
             print(name)
             print(details)
-            print("Full Details :\n")
+            print("\nSites for More Details :")
             if full_details_link:
                 fullProfile(full_details_link)
                 print("\n")
             else:
-                print("No full details link available")
+                print("No Extra details link available")
                 print("\n")
 
 if __name__ == "__main__":
