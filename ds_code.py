@@ -80,35 +80,56 @@ def myPrinter(String_to_print):
         print(String_to_print)
 
 
+def getSpecs(soup):
+    if soup:
+        tabs = soup.find_all('div', class_='sppb-panel sppb-panel-modern')
+        for tab in tabs:
+            if tab.get_text().find("Areas of Specialization") != -1:
+                return tab.get_text().replace("Areas of Specialization", "")
+    else:
+        return None
+
+
+def getSpecialization(url):
+    html_file , response_code = get_page(url)
+    if(response_code):
+        soup = convert_to_soup(html_file)
+        sectionSoup = findGivenClass(soup, 'sppb-addon-content')
+        for Section in sectionSoup:
+            myPrinter(getSpecs(Section))
+            
+
+
+
 def main():
     print("-------------------Start-------------------")
     url =  "https://mit.kln.ac.lk/index.php/staff/academic-staff"
     htlm_file , response_code = get_page(url)
     if(response_code):
-        soup = convert_to_soup(htlm_file)
-        sectionSoup = findGivenClass(soup, 'sppb-section')
-        for Section in sectionSoup:
-            colomunSection = findGivenClass(Section, 'sppb-row')
-            for innerSection in colomunSection:
-                name = getLecturerName(innerSection)
-                detailSection = findGivenClass(innerSection, 'sppb-addon sppb-addon-text-block sppb-text-left')
-                for innerInnerSection in detailSection:
-                    designation = getLecturerDesignation(innerInnerSection)
-                    #print(innerInnerSection)
-                    room , phone , email , fax = getLecturerDetails(innerInnerSection)
-                getLinkSection = findGivenTagAndClass(innerSection, 'a', 'sppb-btn sppb-btn-custom sppb-btn-lg sppb-btn-round')
-                link_to_full_details = ""
-                for innerInnerSection in getLinkSection:
-                    link_to_full_details = innerInnerSection.get('href')
-                print("-------------------------------------------------")
-                myPrinter(name)
-                myPrinter(designation)
-                myPrinter(room)
-                myPrinter(phone)
-                myPrinter(email)
-                myPrinter(fax)
-                myPrinter(link_to_full_details)
-                print("-------------------------------------------------")
+        with open("details.csv", "w") as csv_file:
+            soup = convert_to_soup(htlm_file)
+            sectionSoup = findGivenClass(soup, 'sppb-section')
+            for Section in sectionSoup:
+                colomunSection = findGivenClass(Section, 'sppb-row')
+                for innerSection in colomunSection:
+                    name = getLecturerName(innerSection) if getLecturerName(innerSection) else ""
+                    detailSection = findGivenClass(innerSection, 'sppb-addon sppb-addon-text-block sppb-text-left')
+                    for innerInnerSection in detailSection:
+                        designation = getLecturerDesignation(innerInnerSection) if getLecturerDesignation(innerInnerSection) else ""
+                        #print(innerInnerSection)
+                        room , phone , email , fax = getLecturerDetails(innerInnerSection) if getLecturerDetails(innerInnerSection) else "","","",""
+                    getLinkSection = findGivenTagAndClass(innerSection, 'a', 'sppb-btn sppb-btn-custom sppb-btn-lg sppb-btn-round')
+                    link_to_full_details = ""
+                    for innerInnerSection in getLinkSection:
+                        link_to_full_details = innerInnerSection.get('href') if innerInnerSection.get('href') else ""
+                            
+                    print("---------------------------------")
+                    special = getSpecialization(link_to_full_details) if link_to_full_details else ""
+                    myList = [name, designation, room, phone, email, fax, special]
+                    if myList is not None:
+                        csv_file.write(f"{name},{designation},{room},{phone},{email},{fax},{special}\n")
+                       
+                    print("---------------------------------")
 
 
                 
