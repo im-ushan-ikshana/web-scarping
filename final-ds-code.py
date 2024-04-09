@@ -65,7 +65,7 @@ def findLinkToFullProfile(soup):
             return link_to_full_profile
 
 def csv_writer(data):
-    df = pnd.DataFrame(data, columns=['Name', 'Designation', 'Room', 'Email', 'Phone', 'Fax', 'Specialization Area'])
+    df = pnd.DataFrame(data, columns=['Name', 'Designation', 'Room', 'Email', 'Phone', 'Specialization Area'])
     df.to_csv('lecturer_data.csv', index=False)
     print("Data saved to lecturer_data.csv")
 
@@ -97,4 +97,3 @@ if __name__ == '__main__':
         print("End of the program")
 
 
-        
