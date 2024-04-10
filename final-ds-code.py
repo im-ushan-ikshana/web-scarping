@@ -2,6 +2,30 @@ import bs4
 import requests
 import re
 import pandas as pnd
+import requests
+from requests.exceptions import ConnectionError, Timeout
+
+def get_page(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an error for bad responses (4xx or 5xx)
+        return response.text, response
+    except (ConnectionError, Timeout) as e:
+        print(f"An error occurred: {e}")
+        return None, None
+
+def main():
+    url = 'https://science.kln.ac.lk/depts/im/index.php/staff/academic-staff'
+    html, response = get_page(url)
+    if html is not None and response is not None:
+        # Your code to parse the response goes here
+        pass
+    else:
+        print("Failed to fetch the page.")
+
+if __name__ == '__main__':
+    main()
+
 
 class Lecturer:
     def __init__(self):
@@ -90,6 +114,10 @@ def main():
 if __name__ == '__main__':
     try:
         main()
+    except (ConnectionError, Timeout) as e:
+        print("Connection error occured. Please check your internet connection.")
+    except PermissionError as e:
+        print("Permission denied to write the file. Please close the file and try again.")
     except Exception as e:
         print(e)
         print("Error occured")

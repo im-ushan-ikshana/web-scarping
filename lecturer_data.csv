@@ -1,23 +1,61 @@
 Name,Designation,Room,Email,Phone,Specialization Area
-Prof. Janaka Wijayanayake,Head of the Department ,A4 201,janaka@kln.ac.lk,+94 (0)11 2914482(ext204),"Management Information Systems, "
-Prof. Suren Peter,(Professor),A4.203,suren@kln.ac.lk,+94 (0)11 2914482(ext203),"Finance, "
-Prof. Darshana Sedera,(Adjunct Professor),,darshana.sedera@gmail.com,,
-Dr. Ruwan Wickramarachchi,(Senior Lecturer Grade I),A4 203,ruwan@kln.ac.lk,+94 (0)11 2914482(ext206),"Management Information Systems, Electronic Commerce, Operations Management, "
-Dr. Shantha Jayalal,(Senior Lecturer Grade I),A4 302,shantha@kln.ac.lk,+94 (0)11 2914482(ext107),"Computer Science, "
-Dr. Thareendhra Keerthi Wijayasiriwardhane,(Senior Lecturer Grade I),A4.302,thareen@kln.ac.lk,+94 (0)11 2914482(ext108),"Systems and Software Engineering, "
-Dr. Dilani Wickramaarachchi,(Senior Lecturer Grade I),A4.201,dilani@kln.ac.lk,+94(0)11 2914482(ext207),"Software Engineering, "
-Dr. Chathura Rajapakse,(Senior Lecturer Grade I),A4.302,chathura@kln.ac.lk,+94 (0)11 2914482(ext103),"Computational Intelligence and Systems Science, "
-Dr. Amila Withanaarachchi,(Senior Lecturer Grade II),A4 203,amilaw@kln.ac.lk,+94 (0)11 2914482(ext206),"Green & Renewable energy technologies, Technology Capabilities, Technology Foresight, Technology transfer & Collaborations, "
-Dr. (Ms). Chathumi Kavirathna,(Lecturer),A4 203,chathumi@kln.ac.lk,+94 (0)11 2914482(ext208),"Logistics and transportation management, Supply chain management , Numerical modeling , Operations research, Management, "
-Mr. Dinesh Asanka,(Senior Lecturer Grade II),A4 302,dasanka@kln.ac.lk,+94 (0)11 2914482(ext104),
-Dr. Thilini Mahanama,(Lecturer),,thilinim@kln.ac.lk,+94 (0)11 2914482 (ext208),"Statistics, Data Science, Mathematics, "
-Mr. Buddhika Jayawardena ,(Lecturer (Probationary)),A4 302,buddhikaj@kln.ac.lk,+94 (0)11 2914482(ext106),"Computer Networks, "
-Mr. Nirmala Liyanaarachchi,(Lecturer (Probationary)),,nirmala@kln.ac.lk,,"Industrial Engineering, High-Variety Low-Volume Manufacturing, "
-Mr. Bhanu Watawana ,(Lecturer (Probationary)),,bhanu@kln.ac.lk,,"Industrial Automation, Embedded Systems, "
-Ms. Nilani Algiriyage,(Lecturer (Probationary)),,nilania@kln.ac.lk,,"Web usage mining, Databases, Python for Data Science, "
-Ms. V. Kasuni Tharaka,(Lecturer (Probationary)),,kasuniv@kln.ac.lk,,"Warehouse Management, Supply Chain Management, Operations Management, Transportation and Logistics Management, "
-Ms. Mahikala Niranga,(Lecturer (Probationary)),,nirangam@kln.ac.lk,,"Organizational Behaviour, Human Resource Management, Business Administration, "
-Ms. Hiruni Niwunhella,(Lecturer (Probationary)),,hirunin@kln.ac.lk,,"Industrial Engineering, Data Analytics, "
-Mr. Janaka Senanayake,(Lecturer (Probationary)),,janakas@kln.ac.lk,,"Mobile Computing, Software Engineering, Application Development, Software Security, "
-Ms. Yehemini Jayatissa,(Lecturer (Probationary)),A4 201,yehemini@kln.ac.lk,+94 (0)11 2914482(ext203),"Business Applications, Software Engineering, Intrapreneurship, "
-Ms. Chalani Oruthotaarachchi,(Senior Lecturer),A4 201,chalani@kln.ac.lk,+94 (0)11 2914482 (ext209),"Business Process Management, Information Systems, "
+Prof. Janaka Wijayanayake,Head of the Department ,,janaka@kln.ac.lk,,Areas of SpecializationManagement Information Systems
+Prof. Suren Peter,(Professor),A4.203,suren@kln.ac.lk,,"Areas of Specialization
+Finance
+"
+Prof. Darshana Sedera,(Adjunct Professor),,darshana.sedera@gmail.com,,Areas of Specialization
+Dr. Ruwan Wickramarachchi,(Senior Lecturer Grade I),,ruwan@kln.ac.lk,,Areas of SpecializationManagement Information SystemsElectronic CommerceOperations Management
+Dr. Shantha Jayalal,(Senior Lecturer Grade I),,shantha@kln.ac.lk,,Areas of SpecializationComputer Science
+Dr. Thareendhra Keerthi Wijayasiriwardhane,(Senior Lecturer Grade I),A4.302,thareen@kln.ac.lk,,Areas of SpecializationSystems and Software Engineering
+Dr. Dilani Wickramaarachchi,(Senior Lecturer Grade I),A4.201,dilani@kln.ac.lk,,Areas of SpecializationSoftware Engineering
+Dr. Chathura Rajapakse,(Senior Lecturer Grade I),A4.302,chathura@kln.ac.lk,,Areas of SpecializationComputational Intelligence and Systems Science
+Dr. Amila Withanaarachchi,(Senior Lecturer Grade II),,amilaw@kln.ac.lk,,Areas of SpecializationGreen & Renewable energy technologiesTechnology CapabilitiesTechnology ForesightTechnology transfer & Collaborations
+Dr. (Ms). Chathumi Kavirathna,(Lecturer),,chathumi@kln.ac.lk,,"Areas of Specialization
+
+
+Logistics and transportation management
+Supply chain management 
+Numerical modeling 
+Operations research
+Management
+
+
+"
+Mr. Dinesh Asanka,(Senior Lecturer Grade II),,dasanka@kln.ac.lk,,Areas of Specialization
+Dr. Thilini Mahanama,(Lecturer),,thilinim@kln.ac.lk,,"Area of Specialization
+Statistics
+Data Science
+Mathematics
+"
+Mr. Buddhika Jayawardena ,(Lecturer (Probationary)),,buddhikaj@kln.ac.lk,,"Areas of Specialization
+Computer Networks
+"
+Mr. Nirmala Liyanaarachchi,(Lecturer (Probationary)),,nirmala@kln.ac.lk,,"Areas of Specialization
+Industrial Engineering
+High-Variety Low-Volume Manufacturing
+
+ "
+Mr. Bhanu Watawana ,(Lecturer (Probationary)),,bhanu@kln.ac.lk,,Areas of SpecializationIndustrial AutomationEmbedded Systems
+Ms. Nilani Algiriyage,(Lecturer (Probationary)),,nilania@kln.ac.lk,,Areas of SpecializationWeb usage miningDatabasesPython for Data Science
+Ms. V. Kasuni Tharaka,(Lecturer (Probationary)),,kasuniv@kln.ac.lk,,Areas of SpecializationWarehouse ManagementSupply Chain ManagementOperations ManagementTransportation and Logistics Management
+Ms. Mahikala Niranga,(Lecturer (Probationary)),,nirangam@kln.ac.lk,,"Areas of Specialization
+Organizational Behaviour
+Human Resource Management
+Business Administration
+"
+Ms. Hiruni Niwunhella,(Lecturer (Probationary)),,hirunin@kln.ac.lk,,"Areas of Specialization
+Industrial Engineering
+Data Analytics
+"
+Mr. Janaka Senanayake,(Lecturer (Probationary)),,janakas@kln.ac.lk,,"Areas of Specialization
+Mobile Computing
+Software Engineering
+Application Development
+Software Security
+"
+Ms. Yehemini Jayatissa,(Lecturer (Probationary)),,yehemini@kln.ac.lk,,"Areas of Specialization
+Business Applications
+Software Engineering
+Intrapreneurship
+"
+Ms. Chalani Oruthotaarachchi,(Senior Lecturer),,chalani@kln.ac.lk,,Areas of SpecializationBusiness Process ManagementInformation Systems
