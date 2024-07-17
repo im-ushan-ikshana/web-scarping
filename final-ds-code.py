@@ -1,3 +1,19 @@
+'''
+1. Create a Python script that scrapes the following page: https://science.kln.ac.lk/depts/im/index.php/staff/academic-staff
+2. The script should extract the following information for each lecturer:
+    - Name
+    - Designation
+    - Room
+    - Email
+    - Phone
+    - Specialization Area
+3. The script should save the extracted information to a CSV file named lecturer_data.csv
+4. The script should handle the following exceptions:
+    - ConnectionError
+    - Timeout
+    - PermissionError
+'''
+
 import bs4
 import requests
 import re
